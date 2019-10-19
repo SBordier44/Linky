@@ -1,0 +1,7 @@
+.idea_modules
+.idea
+composer.phar
+/vendor
+composer.lock
+.env
+*/EnedisCookiesJar

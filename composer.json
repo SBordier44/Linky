@@ -1,0 +1,53 @@
+{
+    "name": "nuboxdevcom/linky",
+    "description": "Bibliothèque de récupération des données de consommation Linky depuis votre compte Enedis",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "NuBOXDevCom",
+            "email": "slye@nubox.fr",
+            "homepage": "https://github.com/NuBOXDevCom",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/NuBOXDevCom/Linky/issues",
+        "source": "https://github.com/NuBOXDevCom/Linky/tree/master"
+    },
+    "homepage": "https://github.com/NuBOXDevCom/Linky",
+    "keywords": [
+        "php",
+        "Linky",
+        "Enedis",
+        "Rest",
+        "nuboxdevcom",
+        "nubox"
+    ],
+    "autoload": {
+        "psr-4": {
+            "NDC\\Linky\\": "src"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "process-timeout": 0
+    },
+    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">= 7.3",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "vlucas/phpdotenv": "^3.6"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env-sample', '.env');\""
+        ]
+    }
+}
