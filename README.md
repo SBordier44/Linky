@@ -14,12 +14,11 @@ Cet outil vous servira à extraire vos données de consommation Linky depuis vot
 ```bash
 composer require nuboxdevcom/linky
 ```
-Il vous faudra renseigner le fichier __.env__ pour y mettre votre identifiant/mot de passe Enedis
 
 
 #### Exemple d'utilisation
 ```php
-$linky = new \NDC\Linky\Linky();
+$linky = new \NDC\Linky\Linky('monemail@monfail.fr', 'monmotdepasse'); // Vos identifiants Enedis
 print_r($link->getDataPerYears());
 ```
 

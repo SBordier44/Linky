@@ -49,12 +49,14 @@ class Linky
 
     /**
      * LinkyV2 constructor.
+     *
+     * @param  string  $_login
+     * @param  string  $_password
      */
-    public function __construct()
+    public function __construct(string $_login, string $_password)
     {
-        Dotenv::create(dirname(__DIR__))->load();
-        $this->_login = getenv('UTILISATEUR_ENEDIS');
-        $this->_password = getenv('MOTDEPASSE_ENEDIS');
+        $this->_login = $_login;
+        $this->_password = $_password;
         date_default_timezone_set(self::_timezone);
         $this->_DTZone = new DateTimeZone(self::_timezone);
         if (file_exists(self::_cookiesFile)) {
