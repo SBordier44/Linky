@@ -263,12 +263,13 @@ class Linky
         }
         $startDate = new DateTime($year.'/'.$month.'/01', $this->_DTZone);
         $endDate = (clone $startDate)->modify('last day of this month');
+        $diff = (clone $startDate)->diff($endDate)->days + 1;
         $result = $this->_getData(self::DATA_TYPE_DAILY,
             $startDate, $endDate);
         $returnData = new stdClass();
         $data = $result->graphe->data;
         foreach ($data as $key => $day) {
-            if ($key < $result->graphe->decalage || $key > 29) {
+            if ($key < $result->graphe->decalage || $key > $diff) {
                 continue;
             }
             $currentDay = $startDate->format('d/m/Y');
