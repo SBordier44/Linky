@@ -248,7 +248,7 @@ class Linky
         string $month = '08',
         string $year = '2019'
     ): stdClass {
-        if (!checkdate($month, 30, $year)) {
+        if (!checkdate($month, 01, $year)) {
             throw new RuntimeException('The month or year filled in is invalid.');
         }
         if ($year > date('Y')) {
