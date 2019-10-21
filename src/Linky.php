@@ -312,15 +312,19 @@ class Linky
             $startDate, $endDate);
         $returnData = new stdClass();
         $startHour = new DateTime('00:00');
-        $data = $result->graphe->data;
-        foreach ($data as $key => $hour) {
-            if ($key < $result->graphe->decalage) {
-                continue;
+        if ($result->etat->valeur !== 'termine') {
+            $returnData->data = [];
+        } else {
+            $data = $result->graphe->data;
+            foreach ($data as $key => $hour) {
+                if ($key < $result->graphe->decalage) {
+                    continue;
+                }
+                $currentHour = $startHour->format('H:i');
+                $returnData->data[$currentHour] = $this->_formatReturn($hour,
+                    $hour->valeur !== -1);
+                $startHour->modify('+30 mins');
             }
-            $currentHour = $startHour->format('H:i');
-            $returnData->data[$currentHour] = $this->_formatReturn($hour,
-                $hour->valeur !== -1);
-            $startHour->modify('+30 mins');
         }
         return $returnData;
     }
