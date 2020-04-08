@@ -1,5 +1,7 @@
 ![Enedis Linky](images/linky-enedis-logo.png)
-# PHP Linky
+# PHP Linky [DEPRECATED]
+
+## *Ne fonctionne plus depuis la refonte du système Enedis*
 
 Cet outil vous servira à extraire vos données de consommation Linky depuis votre compte Enedis.
 
